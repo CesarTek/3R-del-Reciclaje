@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encuesta - Proyecto 3R</title>
+
+<link rel="icon" href="Imagenes/ic.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+
+<style>
+.encuesta-box{
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+}
+
+.pregunta{
+  font-weight: 800;
+  color: #0f5c3a;
+  margin-top: 20px;
+}
+
+.opcion{
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+  display: block;
+}
+
+.opcion:hover{
+  background: #e9f7ef;
+  border-color: #198754;
+}
+
+.opcion input{
+  margin-right: 10px;
+}
+
+.respuesta-card{
+  background: #f8f9fa;
+  border-left: 6px solid #198754;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 768px){
+  .encuesta-box{
+    padding: 20px;
+  }
+
+  .pregunta{
+    font-size: 1rem;
+  }
+
+  .opcion{
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+  <div class="container">
+
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="Imagenes/ic.png" alt="Logo" width="40" height="40"
+           class="rounded-circle border border-2 border-light">
+      <span class="fw-bold">Manos a la Obra</span>
+    </a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="actividades.html">Actividades</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+        
+        <li class="nav-item"><a class="nav-link active" href="encuesta.html">Encuesta</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENIDO -->
+<div class="container mt-5 pt-5">
+  <h1 class="section-title text-center mb-4">Encuesta: Proyecto 3R</h1>
+
+  <div class="encuesta-box fade-in">
+    <form id="encuestaForm">
+
+      <input type="text" id="nombreEncuesta" class="form-control mb-3" placeholder="Tu nombre (opcional)">
+
+      <!-- GENERO -->
+      <h5 class="pregunta">👦👧 Género:</h5>
+      <select id="genero" class="form-select mb-3">
+        <option value="">Selecciona tu género</option>
+        <option value="Niño">Niño</option>
+        <option value="Niña">Niña</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <!-- EDAD -->
+      <h5 class="pregunta">🎂 Edad:</h5>
+      <select id="edad" class="form-select mb-3">
+        <option value="">Selecciona tu edad</option>
+        <option value="9">9 años</option>
+        <option value="10">10 años</option>
+        <option value="11">11 años</option>
+      </select>
+
+      <!-- PREGUNTA 1 -->
+      <h5 class="pregunta">1. ¿Has escuchado antes sobre las “3R del reciclaje”?</h5>
+      <label class="opcion"><input type="radio" name="p1" value="Sí"> Sí</label>
+      <label class="opcion"><input type="radio" name="p1" value="No"> No</label>
+      <label class="opcion"><input type="radio" name="p1" value="No estoy seguro/a"> No estoy seguro/a</label>
+
+      <!-- PREGUNTA 2 -->
+      <h5 class="pregunta">2. ¿Qué crees que significan las 3R?</h5>
+      <label class="opcion"><input type="radio" name="p2" value="Reducir, Reutilizar y Reciclar"> Reducir, Reutilizar y Reciclar</label>
+      <label class="opcion"><input type="radio" name="p2" value="Recoger, Regalar y Repartir"> Recoger, Regalar y Repartir</label>
+      <label class="opcion"><input type="radio" name="p2" value="Reír, Respetar y Repetir"> Reír, Respetar y Repetir</label>
+
+      <!-- PREGUNTA 3 -->
+      <h5 class="pregunta">3. Cuando terminas de usar una botella plástica, ¿qué haces normalmente?</h5>
+      <label class="opcion"><input type="radio" name="p3" value="La boto a la basura"> La boto a la basura</label>
+      <label class="opcion"><input type="radio" name="p3" value="La guardo para volver a usarla"> La guardo para volver a usarla</label>
+      <label class="opcion"><input type="radio" name="p3" value="No sé qué hacer con ella"> No sé qué hacer con ella</label>
+
+      <!-- PREGUNTA 4 -->
+      <h5 class="pregunta">4. ¿Qué haces con tus cuadernos viejos o hojas usadas?</h5>
+      <label class="opcion"><input type="radio" name="p4" value="Los tiro directamente"> Los tiro directamente</label>
+      <label class="opcion"><input type="radio" name="p4" value="Los uso para escribir por el otro lado"> Los uso para escribir por el otro lado</label>
+      <label class="opcion"><input type="radio" name="p4" value="Los dejo guardados sin usar"> Los dejo guardados sin usar</label>
+
+      <!-- PREGUNTA 5 -->
+      <h5 class="pregunta">5. ¿Qué crees que significa “Reducir”?</h5>
+      <label class="opcion"><input type="radio" name="p5" value="Comprar y usar menos cosas que producen basura"> Comprar y usar menos cosas que producen basura</label>
+      <label class="opcion"><input type="radio" name="p5" value="Comprar muchas cosas para tener más"> Comprar muchas cosas para tener más</label>
+      <label class="opcion"><input type="radio" name="p5" value="Botar basura rápido"> Botar basura rápido</label>
+
+      <!-- PREGUNTA 6 -->
+      <h5 class="pregunta">6. ¿Cuál de estas acciones ayuda más al planeta?</h5>
+      <label class="opcion"><input type="radio" name="p6" value="Usar bolsas reutilizables"> Usar bolsas reutilizables</label>
+      <label class="opcion"><input type="radio" name="p6" value="Usar bolsas plásticas cada vez que compro"> Usar bolsas plásticas cada vez que compro</label>
+      <label class="opcion"><input type="radio" name="p6" value="Tirar basura en cualquier lugar"> Tirar basura en cualquier lugar</label>
+
+      <!-- PREGUNTA 7 -->
+      <h5 class="pregunta">7. ¿Qué haces cuando ves basura en el patio o en la calle?</h5>
+      <label class="opcion"><input type="radio" name="p7" value="La recojo y la boto en el basurero"> La recojo y la boto en el basurero</label>
+      <label class="opcion"><input type="radio" name="p7" value="La dejo ahí"> La dejo ahí</label>
+      <label class="opcion"><input type="radio" name="p7" value="Juego con ella"> Juego con ella</label>
+
+      <!-- PREGUNTA 8 -->
+      <h5 class="pregunta">8. ¿Sabes separar la basura en diferentes tipos?</h5>
+      <label class="opcion"><input type="radio" name="p8" value="Sí, sé separar papel, plástico y vidrio"> Sí, sé separar papel, plástico y vidrio</label>
+      <label class="opcion"><input type="radio" name="p8" value="Solo separo algunas cosas"> Solo separo algunas cosas</label>
+      <label class="opcion"><input type="radio" name="p8" value="No sé separar"> No sé separar</label>
+
+      <!-- PREGUNTA 9 -->
+      <h5 class="pregunta">9. ¿Cuál de estas cosas crees que se puede reciclar?</h5>
+      <label class="opcion"><input type="radio" name="p9" value="Botellas plásticas, latas y papel"> Botellas plásticas, latas y papel</label>
+      <label class="opcion"><input type="radio" name="p9" value="Restos de sopa y jugo"> Restos de sopa y jugo</label>
+      <label class="opcion"><input type="radio" name="p9" value="Tierra y piedras"> Tierra y piedras</label>
+
+      <!-- PREGUNTA 10 -->
+      <h5 class="pregunta">10. ¿Por qué crees que es importante reciclar?</h5>
+      <label class="opcion"><input type="radio" name="p10" value="Para cuidar el planeta y tener menos contaminación"> Para cuidar el planeta y tener menos contaminación</label>
+      <label class="opcion"><input type="radio" name="p10" value="Para ensuciar menos mi casa solamente"> Para ensuciar menos mi casa solamente</label>
+      <label class="opcion"><input type="radio" name="p10" value="No creo que sea importante"> No creo que sea importante</label>
+
+      <button type="button" class="btn btn-custom w-100 mt-4" onclick="guardarEncuesta()">
+        Enviar Encuesta
+      </button>
+
+      <button type="button" class="btn btn-secondary w-100 mt-2" onclick="descargarCSV()">
+        Descargar resultados (Excel)
+      </button>
+
+      <button type="button" class="btn btn-danger w-100 mt-2" onclick="borrarDatos()">
+        Borrar todos los datos
+      </button>
+
+      <h5 class="mt-4 text-success fw-bold text-center" id="mensaje"></h5>
+    </form>
+  </div>
+
+  <!-- RESPUESTAS GUARDADAS -->
+  <div class="encuesta-box mt-4 fade-in">
+    <h4 class="fw-bold text-success">📌 Respuestas guardadas</h4>
+    <div class="mt-3" id="listaEncuestas"></div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p class="mb-0">⭐ Encuesta del Proyecto 3R</p>
+</div>
+
+<script>
+function guardarEncuesta(){
+
+  let nombre = document.getElementById("nombreEncuesta").value.trim();
+  let genero = document.getElementById("genero").value;
+  let edad = document.getElementById("edad").value;
+
+  if(genero === "" || edad === ""){
+    document.getElementById("mensaje").innerHTML = "⚠️ Selecciona tu género y edad.";
+    return;
+  }
+
+  for(let i=1; i<=10; i++){
+    let respuesta = document.querySelector('input[name="p'+i+'"]:checked');
+    if(!respuesta){
+      document.getElementById("mensaje").innerHTML = "⚠️ Responde todas las preguntas antes de enviar.";
+      return;
+    }
+  }
+
+  let respuestas = {};
+  for(let i=1; i<=10; i++){
+    let seleccion = document.querySelector('input[name="p'+i+'"]:checked');
+    respuestas["p"+i] = seleccion.value;
+  }
+
+  let datos = JSON.parse(localStorage.getItem("encuestas3R")) || [];
+
+  datos.push({
+    nombre: nombre || "Anónimo",
+    genero: genero,
+    edad: edad,
+    respuestas: respuestas
+  });
+
+  localStorage.setItem("encuestas3R", JSON.stringify(datos));
+
+  document.getElementById("mensaje").innerHTML = "✅ Encuesta guardada correctamente!";
+  document.getElementById("encuestaForm").reset();
+
+  mostrarEncuestas();
+}
+
+function mostrarEncuestas(){
+
+  let datos = JSON.parse(localStorage.getItem("encuestas3R")) || [];
+  let lista = document.getElementById("listaEncuestas");
+
+  if(datos.length === 0){
+    lista.innerHTML = "<p class='text-muted'>Aún no hay respuestas guardadas.</p>";
+    return;
+  }
+
+  lista.innerHTML = "";
+
+  datos.forEach((d, index) => {
+    lista.innerHTML += `
+      <div class="respuesta-card">
+        <h6 class="fw-bold text-success">👤 ${d.nombre}</h6>
+        <p class="mb-1"><b>Género:</b> ${d.genero} | <b>Edad:</b> ${d.edad} años</p>
+        <small class="text-muted">Registro #${index + 1}</small>
+      </div>
+    `;
+  });
+}
+
+function descargarCSV(){
+
+  let datos = JSON.parse(localStorage.getItem("encuestas3R")) || [];
+
+  if(datos.length === 0){
+    alert("⚠️ No hay datos para descargar.");
+    return;
+  }
+
+  let csv = "Nombre,Género,Edad,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10\n";
+
+  datos.forEach(d => {
+    csv += `"${d.nombre}","${d.genero}","${d.edad}","${d.respuestas.p1}","${d.respuestas.p2}","${d.respuestas.p3}","${d.respuestas.p4}","${d.respuestas.p5}","${d.respuestas.p6}","${d.respuestas.p7}","${d.respuestas.p8}","${d.respuestas.p9}","${d.respuestas.p10}"\n`;
+  });
+
+  let blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  let url = URL.createObjectURL(blob);
+
+  let a = document.createElement("a");
+  a.href = url;
+  a.download = "resultados_encuesta_3R.csv";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+function borrarDatos(){
+
+  if(confirm("⚠️ ¿Seguro que deseas borrar todas las encuestas guardadas?")){
+    localStorage.removeItem("encuestas3R");
+    mostrarEncuestas();
+    document.getElementById("mensaje").innerHTML = "🗑️ Datos eliminados correctamente.";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", mostrarEncuestas);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

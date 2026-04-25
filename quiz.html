@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz - Proyecto 3R</title>
+
+<link rel="icon" href="Imagenes/ic.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+
+<style>
+/* ESTILO PROFESIONAL SOLO PARA QUIZ */
+.quiz-box{
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+}
+
+.quiz-question{
+  font-weight: 800;
+  color: #0f5c3a;
+  margin-bottom: 12px;
+}
+
+.quiz-option{
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+  display: block;
+}
+
+.quiz-option:hover{
+  background: #e9f7ef;
+  border-color: #198754;
+}
+
+.quiz-option input{
+  margin-right: 10px;
+}
+
+.modal-header{
+  background: #198754;
+  color: white;
+}
+
+.correct-answer{
+  background: #e9f7ef;
+  border-left: 6px solid #198754;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.bad-answer{
+  background: #ffe6e6;
+  border-left: 6px solid #dc3545;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.progress{
+  height: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progress-bar{
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+
+  .quiz-box{
+    padding: 20px;
+  }
+
+  .quiz-question{
+    font-size: 1rem;
+  }
+
+  .quiz-option{
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .section-title{
+    font-size: 1.7rem;
+  }
+
+  .modal-dialog{
+    margin: 10px;
+  }
+
+  #puntajeTexto{
+    font-size: 1.2rem;
+  }
+
+  #mensajeTexto{
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+  <div class="container">
+
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="Imagenes/ic.png" alt="Logo" width="40" height="40"
+           class="rounded-circle border border-2 border-light">
+      <span class="fw-bold">Manos a la Obra</span>
+    </a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="actividades.html">Actividades</a></li>
+        <li class="nav-item"><a class="nav-link active" href="quiz.html">Quiz</a></li>
+      
+        <li class="nav-item"><a class="nav-link" href="encuesta.html">Encuesta</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENIDO -->
+<div class="container mt-5 pt-5">
+  <h1 class="section-title text-center mb-4">Quiz: ¿Cuánto sabes de las 3R?</h1>
+
+  <div class="quiz-box fade-in">
+    <form id="quizForm">
+
+      <!-- PREGUNTA 1 -->
+      <h5 class="quiz-question">1. ¿Qué significa reducir?</h5>
+      <label class="quiz-option"><input type="radio" name="p1" value="0"> Botar basura en la calle</label>
+      <label class="quiz-option"><input type="radio" name="p1" value="1"> Consumir menos y generar menos residuos</label>
+      <label class="quiz-option"><input type="radio" name="p1" value="0"> Comprar más productos</label>
+      <hr>
+
+      <!-- PREGUNTA 2 -->
+      <h5 class="quiz-question">2. ¿Cuál es un ejemplo de reutilizar?</h5>
+      <label class="quiz-option"><input type="radio" name="p2" value="1"> Usar una botella como maceta</label>
+      <label class="quiz-option"><input type="radio" name="p2" value="0"> Tirar papel al piso</label>
+      <label class="quiz-option"><input type="radio" name="p2" value="0"> Quemar plástico</label>
+      <hr>
+
+      <!-- PREGUNTA 3 -->
+      <h5 class="quiz-question">3. ¿Qué es reciclar?</h5>
+      <label class="quiz-option"><input type="radio" name="p3" value="0"> Tirar basura en el río</label>
+      <label class="quiz-option"><input type="radio" name="p3" value="1"> Separar residuos para convertirlos en nuevos productos</label>
+      <label class="quiz-option"><input type="radio" name="p3" value="0"> Comprar bolsas nuevas</label>
+      <hr>
+
+      <!-- PREGUNTA 4 -->
+      <h5 class="quiz-question">4. ¿Qué material es reciclable?</h5>
+      <label class="quiz-option"><input type="radio" name="p4" value="1"> Papel</label>
+      <label class="quiz-option"><input type="radio" name="p4" value="0"> Comida</label>
+      <label class="quiz-option"><input type="radio" name="p4" value="0"> Tierra</label>
+      <hr>
+
+      <!-- PREGUNTA 5 -->
+      <h5 class="quiz-question">5. ¿Cuál de estos se puede reciclar?</h5>
+      <label class="quiz-option"><input type="radio" name="p5" value="1"> Botellas de plástico</label>
+      <label class="quiz-option"><input type="radio" name="p5" value="0"> Restos de sopa</label>
+      <label class="quiz-option"><input type="radio" name="p5" value="0"> Arena</label>
+      <hr>
+
+      <!-- PREGUNTA 6 -->
+      <h5 class="quiz-question">6. ¿Qué debemos hacer con una hoja usada?</h5>
+      <label class="quiz-option"><input type="radio" name="p6" value="1"> Usarla por el otro lado antes de botarla</label>
+      <label class="quiz-option"><input type="radio" name="p6" value="0"> Quemarla</label>
+      <label class="quiz-option"><input type="radio" name="p6" value="0"> Tirarla al río</label>
+      <hr>
+
+      <!-- PREGUNTA 7 -->
+      <h5 class="quiz-question">7. ¿Qué color suele representar reciclaje?</h5>
+      <label class="quiz-option"><input type="radio" name="p7" value="1"> Verde</label>
+      <label class="quiz-option"><input type="radio" name="p7" value="0"> Negro</label>
+      <label class="quiz-option"><input type="radio" name="p7" value="0"> Rojo</label>
+      <hr>
+
+      <!-- PREGUNTA 8 -->
+      <h5 class="quiz-question">8. ¿Cuál es una acción de reducir?</h5>
+      <label class="quiz-option"><input type="radio" name="p8" value="1"> Evitar usar bolsas plásticas</label>
+      <label class="quiz-option"><input type="radio" name="p8" value="0"> Tirar botellas al piso</label>
+      <label class="quiz-option"><input type="radio" name="p8" value="0"> Comprar más envoltorios</label>
+      <hr>
+
+      <!-- PREGUNTA 9 -->
+      <h5 class="quiz-question">9. ¿Qué se debe hacer antes de reciclar una botella?</h5>
+      <label class="quiz-option"><input type="radio" name="p9" value="1"> Lavarlas y aplastarlas</label>
+      <label class="quiz-option"><input type="radio" name="p9" value="0"> Llenarlas con tierra</label>
+      <label class="quiz-option"><input type="radio" name="p9" value="0"> Tirarlas al río</label>
+      <hr>
+
+      <!-- PREGUNTA 10 -->
+      <h5 class="quiz-question">10. ¿Por qué es importante reciclar?</h5>
+      <label class="quiz-option"><input type="radio" name="p10" value="1"> Porque reduce la contaminación</label>
+      <label class="quiz-option"><input type="radio" name="p10" value="0"> Porque genera más basura</label>
+      <label class="quiz-option"><input type="radio" name="p10" value="0"> Porque ensucia el planeta</label>
+
+      <button type="button" class="btn btn-custom w-100 mt-3" onclick="calcularQuiz()">
+        Finalizar Quiz
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL RESULTADO -->
+<div class="modal fade" id="resultadoModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">📌 Resultado del Quiz</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <h4 id="puntajeTexto" class="text-center fw-bold"></h4>
+        <p id="mensajeTexto" class="text-center fs-5"></p>
+
+        <!-- BARRA DE PROGRESO -->
+        <div class="progress mb-4">
+          <div id="barraProgreso" class="progress-bar bg-success" style="width:0%">0%</div>
+        </div>
+
+        <hr>
+
+        <h5 class="fw-bold text-success">📌 Revisión de Respuestas:</h5>
+        <div id="respuestasCorrectas"></div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-success" onclick="reiniciarQuiz()">Reintentar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p class="mb-0">🧠 Quiz educativo del Proyecto 3R</p>
+</div>
+
+<script>
+function calcularQuiz(){
+
+  let preguntas = {
+    p1: { texto: "1. ¿Qué significa reducir?", correcta: "Consumir menos y generar menos residuos" },
+    p2: { texto: "2. ¿Cuál es un ejemplo de reutilizar?", correcta: "Usar una botella como maceta" },
+    p3: { texto: "3. ¿Qué es reciclar?", correcta: "Separar residuos para convertirlos en nuevos productos" },
+    p4: { texto: "4. ¿Qué material es reciclable?", correcta: "Papel" },
+    p5: { texto: "5. ¿Cuál de estos se puede reciclar?", correcta: "Botellas de plástico" },
+    p6: { texto: "6. ¿Qué debemos hacer con una hoja usada?", correcta: "Usarla por el otro lado antes de botarla" },
+    p7: { texto: "7. ¿Qué color suele representar reciclaje?", correcta: "Verde" },
+    p8: { texto: "8. ¿Cuál es una acción de reducir?", correcta: "Evitar usar bolsas plásticas" },
+    p9: { texto: "9. ¿Qué se debe hacer antes de reciclar una botella?", correcta: "Lavarlas y aplastarlas" },
+    p10:{ texto: "10. ¿Por qué es importante reciclar?", correcta: "Porque reduce la contaminación" }
+  };
+
+  let total = 0;
+
+  for(let i=1; i<=10; i++){
+    let respuesta = document.querySelector('input[name="p'+i+'"]:checked');
+    if(!respuesta){
+      alert("⚠️ Responde todas las preguntas antes de finalizar.");
+      return;
+    }
+  }
+
+  let respuestasUsuario = {};
+  for(let i=1; i<=10; i++){
+    let seleccion = document.querySelector('input[name="p'+i+'"]:checked');
+    respuestasUsuario["p"+i] = seleccion.parentElement.innerText.trim();
+    total += parseInt(seleccion.value);
+  }
+
+  let mensaje = "";
+  if(total == 10){
+    mensaje = "🌟 Excelente! Respondiste todo correcto.";
+  }else if(total >= 6){
+    mensaje = "👍 Muy bien! Ya sabes bastante sobre las 3R.";
+  }else if(total >= 3){
+    mensaje = "🙂 Bien, pero aún puedes mejorar.";
+  }else{
+    mensaje = "📘 Debes practicar más. ¡Sigue aprendiendo!";
+  }
+
+  document.getElementById("puntajeTexto").innerHTML = "Tu puntaje es: " + total + "/10";
+  document.getElementById("mensajeTexto").innerHTML = mensaje;
+
+  let porcentaje = (total / 10) * 100;
+
+  let barra = document.getElementById("barraProgreso");
+  barra.style.width = porcentaje + "%";
+  barra.innerHTML = porcentaje + "%";
+
+  barra.classList.remove("bg-success","bg-warning","bg-danger");
+
+  if(porcentaje < 50){
+    barra.classList.add("bg-danger");
+  }else if(porcentaje < 100){
+    barra.classList.add("bg-warning");
+  }else{
+    barra.classList.add("bg-success");
+  }
+
+  let html = "";
+
+  for(let key in preguntas){
+
+    if(respuestasUsuario[key] === preguntas[key].correcta){
+      html += `
+        <div class="correct-answer">
+          <b>${preguntas[key].texto}</b><br>
+          ✅ Tu respuesta: ${respuestasUsuario[key]}
+        </div>
+      `;
+    } else {
+      html += `
+        <div class="bad-answer">
+          <b>${preguntas[key].texto}</b><br>
+          ❌ Tu respuesta: ${respuestasUsuario[key]} <br>
+          ✅ Correcta: ${preguntas[key].correcta}
+        </div>
+      `;
+    }
+  }
+
+  document.getElementById("respuestasCorrectas").innerHTML = html;
+
+  let modal = new bootstrap.Modal(document.getElementById('resultadoModal'));
+  modal.show();
+}
+
+function reiniciarQuiz(){
+  document.getElementById("quizForm").reset();
+
+  let modalElement = document.getElementById('resultadoModal');
+  let modal = bootstrap.Modal.getInstance(modalElement);
+  modal.hide();
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
