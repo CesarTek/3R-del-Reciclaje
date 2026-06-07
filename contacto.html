@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,8 +6,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto - Proyecto 3R</title>
 
+<link rel="icon" href="imagenes/ic.png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="CSS/estilo.css">
+
+<style>
+
+.blog-card{
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.blog-card:hover{
+  transform: translateY(-5px);
+}
+
+.blog-card img{
+  height: 300px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.blog-card img:hover{
+  opacity: 0.9;
+}
+
+.blog-title{
+  color: var(--verde-oscuro);
+  font-weight: 700;
+}
+
+.btn-facebook{
+  background: #1877F2;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+}
+
+.btn-facebook:hover{
+  background: #0d65d9;
+  color: white;
+}
+
+@media (max-width:768px){
+
+  .blog-card img{
+    height: 220px;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
@@ -14,64 +70,163 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">🌍 Manos a la Obra</a>
 
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="imagenes/ic.png"
+           alt="Logo"
+           width="40"
+           height="40"
+           class="rounded-circle border border-2 border-light">
+
+      <span class="fw-bold">Manos a la Obra</span>
+    </a>
+
+    <button class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="menu">
+
       <ul class="navbar-nav ms-auto">
 
-        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="actividades.html">Actividades</a></li>
-   
-
-        <!-- NUEVAS OPCIONES -->
-        <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
-       
-        <li class="nav-item"><a class="nav-link" href="encuesta.html">Encuesta</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Inicio</a>
+        </li>
 
         <li class="nav-item">
-          <a class="btn btn-light text-success ms-2 fw-bold" target="_blank" href="https://www.facebook.com/mermeladxs?locale=es_LA">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="actividades.html">Actividades</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="quiz.html">Quiz</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="encuesta.html">Encuesta</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="contacto.html">Contacto</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="btn btn-light text-success ms-2 fw-bold"
+             target="_blank"
+             href="https://www.facebook.com/mermeladxs?locale=es_LA">
             Facebook
           </a>
         </li>
 
       </ul>
+
     </div>
   </div>
 </nav>
 
-<!-- CONTENIDO -->
+<!-- CONTACTO -->
 <div class="container mt-5 pt-5 text-center">
-  <h1 class="section-title mb-4">Contacto Oficial</h1>
+
+  <h1 class="section-title mb-4">
+    Contacto Oficial
+  </h1>
 
   <div class="section-box fade-in">
+
     <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg"
-         style="max-height:250px; object-fit:cover;" class="img-fluid img-rounded mb-4">
+         style="max-height:250px; object-fit:cover;"
+         class="img-fluid img-rounded mb-4">
 
     <p class="fs-5">
-      Somos un grupo comprometido con la educación ambiental y el cuidado del planeta.
+      Somos un grupo comprometido con la educación ambiental
+      y el cuidado del planeta.
     </p>
 
-    <p><strong>Correo:</strong> proyecto3r@gmail.com</p>
-    <p><strong>Teléfono:</strong> +591 73615292</p>
+    <p>
+      <strong>Correo:</strong>
+      proyecto3r@gmail.com
+    </p>
 
-    <a href="https://www.facebook.com/mermeladxs?locale=es_LA" target="_blank" class="btn btn-primary btn-lg mt-3">
-    Visitar Fan Page en Facebook
+    <p>
+      <strong>Teléfono:</strong>
+      +591 73615292
+    </p>
+
+    <a href="https://www.facebook.com/mermeladxs?locale=es_LA"
+       target="_blank"
+       class="btn btn-primary btn-lg mt-3">
+       Visitar Fan Page en Facebook
     </a>
+
   </div>
+
+</div>
+
+<!-- COMO LLEGAR -->
+<div class="container mt-5">
+
+  <h2 class="section-title text-center mb-4">
+    📍 ¿Cómo llegar?
+  </h2>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-8 col-lg-6">
+
+      <div class="card blog-card fade-in">
+
+        <a href="https://www.facebook.com/share/r/1BRWdheMMG/"
+           target="_blank">
+
+          <img src="Imagenes/comollegar.PNG"
+               class="card-img-top"
+               alt="Cómo llegar">
+
+        </a>
+
+        <div class="card-body text-center">
+
+          <h5 class="blog-title">
+            Ubicación Oficial del Proyecto 3R
+          </h5>
+
+          <p>
+            Mira el video donde mostramos cómo llegar
+            al lugar donde se desarrollan nuestras actividades.
+          </p>
+
+          <a href="https://www.facebook.com/reel/827686097062055"
+             target="_blank"
+             class="btn btn-facebook w-100">
+
+             🎥 Ver video de ubicación
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
-  <p class="mb-0">📩 Contacto oficial del Proyecto 3R</p>
+<div class="footer mt-5">
+  <p class="mb-0">
+    📩 Contacto oficial del Proyecto 3R
+  </p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+```
